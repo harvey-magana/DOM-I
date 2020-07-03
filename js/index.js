@@ -143,3 +143,14 @@ investors.setAttribute('href', '#');
 investors.style.color = 'green';
 investors.innerText = 'Investors';
 nav.prepend(investors);
+
+ctaButton.setAttribute('onClick', 'myFunction()');
+
+function myFunction(){
+  console.log("Clickity-click!");
+  if(document.getElementsByTagName('body')[0].style.backgroundColor === ""){
+    document.getElementsByTagName('body')[0].style.backgroundColor = 'pink'
+  } else {
+    document.getElementsByTagName('body')[0].style.backgroundColor = ""
+  }
+}
