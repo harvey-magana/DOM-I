@@ -70,3 +70,35 @@ ctaImg.setAttribute('src', siteContent.cta["img-src"]);
 
 let mainContent = document.getElementsByClassName('container')[0].children[2];
 
+let featuresH4 = mainContent.children[0].children[0].firstElementChild;
+featuresH4.innerText = siteContent['main-content']['features-h4']
+
+let featuresP = mainContent.children[0].children[0].lastElementChild;
+featuresP.innerText = siteContent['main-content']["features-content"]
+
+let aboutH4 = mainContent.children[0].children[1].firstElementChild;
+aboutH4.innerText = siteContent['main-content']["about-h4"]
+
+let aboutP = mainContent.children[0].children[1].lastElementChild;
+aboutP.innerText = siteContent['main-content']["about-content"]
+
+let middleImg = mainContent.children[1];
+middleImg.setAttribute('src', siteContent['main-content']['middle-img-src']);
+
+let servicesH4 = mainContent.children[2].children[0].firstElementChild;
+servicesH4.innerText = siteContent['main-content']["services-h4"];
+
+let servicesP = mainContent.children[2].children[0].lastElementChild;
+servicesP.innerText = siteContent['main-content']['services-content'];
+
+let productH4 = mainContent.children[2].children[1].firstElementChild;
+productH4.innerText = siteContent['main-content']["product-h4"];
+
+let productP = mainContent.children[2].children[1].lastElementChild;
+productP.innerText = siteContent['main-content']['product-content'];
+
+let visionH4 = mainContent.children[2].children[2].firstElementChild;
+visionH4.innerText = siteContent['main-content']["vision-h4"];
+
+let visionP = mainContent.children[2].children[2].lastElementChild;
+visionP.innerText = siteContent['main-content']['vision-content'];
