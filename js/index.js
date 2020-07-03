@@ -56,5 +56,17 @@ navChildren4.innerText = siteContent.nav["nav-item-4"];
 navChildren5.innerText = siteContent.nav["nav-item-5"];
 navChildren6.innerText = siteContent.nav["nav-item-6"];
 
+let cta = document.querySelector('section', 'cta');
+let ctaH1 = document.querySelector('cta', 'h1');
 
+let ctaText = cta.children[0];
+ctaText.children[0].innerText = siteContent.cta.h1;
+
+let ctaButton = ctaText.children[1];
+ctaButton.innerText = siteContent.cta.button;
+
+let ctaImg = cta.children[1];
+ctaImg.setAttribute('src', siteContent.cta["img-src"]);
+
+let mainContent = document.getElementsByClassName('container')[0].children[2];
 
