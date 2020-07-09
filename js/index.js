@@ -41,27 +41,16 @@ const siteContent = {
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
-let nav = document.querySelector('nav');
-let navChildren1 = nav.children[0];
-let navChildren2 = nav.children[1];
-let navChildren3 = nav.children[2];
-let navChildren4 = nav.children[3];
-let navChildren5 = nav.children[4];
-let navChildren6 = nav.children[5];
 
-navChildren1.innerText = siteContent.nav["nav-item-1"];
-navChildren2.innerText = siteContent.nav["nav-item-2"];
-navChildren3.innerText = siteContent.nav["nav-item-3"];
-navChildren4.innerText = siteContent.nav["nav-item-4"];
-navChildren5.innerText = siteContent.nav["nav-item-5"];
-navChildren6.innerText = siteContent.nav["nav-item-6"];
+let nav = document.querySelectorAll('nav a');
 
-for(let i = 0; i < nav.children.length; i++) {
-  nav.children[i].style.color = 'green';
-}
+nav.forEach((element, i) => {
+  element.style.color = 'green';
+  element.textContent = siteContent.nav[`nav-item-${i + 1}`]
+});
 
 let cta = document.querySelector('section', 'cta');
-let ctaH1 = document.querySelector('cta', 'h1');
+//let ctaH1 = document.querySelector('cta', 'h1');
 
 let ctaText = cta.children[0];
 ctaText.children[0].innerText = siteContent.cta.h1;
@@ -72,40 +61,21 @@ ctaButton.innerText = siteContent.cta.button;
 let ctaImg = cta.children[1];
 ctaImg.setAttribute('src', siteContent.cta["img-src"]);
 
-let mainContent = document.getElementsByClassName('container')[0].children[2];
-
-let featuresH4 = mainContent.children[0].children[0].firstElementChild;
-featuresH4.innerText = siteContent['main-content']['features-h4']
-
-let featuresP = mainContent.children[0].children[0].lastElementChild;
-featuresP.innerText = siteContent['main-content']["features-content"]
-
-let aboutH4 = mainContent.children[0].children[1].firstElementChild;
-aboutH4.innerText = siteContent['main-content']["about-h4"]
-
-let aboutP = mainContent.children[0].children[1].lastElementChild;
-aboutP.innerText = siteContent['main-content']["about-content"]
-
-let middleImg = mainContent.children[1];
-middleImg.setAttribute('src', siteContent['main-content']['middle-img-src']);
-
-let servicesH4 = mainContent.children[2].children[0].firstElementChild;
-servicesH4.innerText = siteContent['main-content']["services-h4"];
-
-let servicesP = mainContent.children[2].children[0].lastElementChild;
-servicesP.innerText = siteContent['main-content']['services-content'];
-
-let productH4 = mainContent.children[2].children[1].firstElementChild;
-productH4.innerText = siteContent['main-content']["product-h4"];
-
-let productP = mainContent.children[2].children[1].lastElementChild;
-productP.innerText = siteContent['main-content']['product-content'];
-
-let visionH4 = mainContent.children[2].children[2].firstElementChild;
-visionH4.innerText = siteContent['main-content']["vision-h4"];
-
-let visionP = mainContent.children[2].children[2].lastElementChild;
-visionP.innerText = siteContent['main-content']['vision-content'];
+let mainContent = document.getElementsByClassName('main-content');
+let mainContentArr = Array.from(mainContent);
+mainContentArr.forEach((element, i) => {
+  element.children[0].children[0].firstElementChild.innerText = siteContent['main-content']['features-h4'];
+  element.children[0].children[0].lastElementChild.innerText = siteContent['main-content']["features-content"];
+  element.children[0].children[1].firstElementChild.innerText = siteContent['main-content']["about-h4"];
+  element.children[0].children[1].lastElementChild.innerText = siteContent['main-content']["about-content"];
+  element.children[1].setAttribute('src', siteContent['main-content']['middle-img-src']);
+  element.children[2].children[0].firstElementChild.innerText = siteContent['main-content']["services-h4"];
+  element.children[2].children[0].lastElementChild.innerText = siteContent['main-content']['services-content'];
+  element.children[2].children[1].firstElementChild.innerText = siteContent['main-content']["product-h4"];
+  element.children[2].children[1].lastElementChild.innerText = siteContent['main-content']['product-content'];
+  element.children[2].children[2].firstElementChild.innerText = siteContent['main-content']["vision-h4"];
+  element.children[2].children[2].lastElementChild.innerText = siteContent['main-content']['vision-content'];
+})
 
 let contactContent = document.getElementsByClassName('container')[0].children[3];
 
@@ -154,3 +124,5 @@ function myFunction(){
     document.getElementsByTagName('body')[0].style.backgroundColor = ""
   }
 }
+
+
