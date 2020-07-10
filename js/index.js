@@ -49,8 +49,23 @@ nav.forEach((element, i) => {
   element.textContent = siteContent.nav[`nav-item-${i + 1}`]
 });
 
+let history = document.createElement('a');
+let investors = document.createElement('a');
+
+history.setAttribute('href', '#')
+
+/*
+nav.appendChild(history)
+history.innerText = 'History';
+history.style.color = 'green';
+
+investors.setAttribute('href', '#');
+investors.style.color = 'green';
+investors.innerText = 'Investors';
+nav.prepend(investors);
+*/
+
 let cta = document.querySelector('section', 'cta');
-//let ctaH1 = document.querySelector('cta', 'h1');
 
 let ctaText = cta.children[0];
 ctaText.children[0].innerText = siteContent.cta.h1;
@@ -75,44 +90,28 @@ mainContentArr.forEach((element, i) => {
   element.children[2].children[1].lastElementChild.innerText = siteContent['main-content']['product-content'];
   element.children[2].children[2].firstElementChild.innerText = siteContent['main-content']["vision-h4"];
   element.children[2].children[2].lastElementChild.innerText = siteContent['main-content']['vision-content'];
-})
+});
 
-let contactContent = document.getElementsByClassName('container')[0].children[3];
+//let contactContent = document.getElementsByClassName('container')[0].children[3];
 
-let contactH4 = contactContent.firstElementChild;
-contactH4.innerText = siteContent['contact']["contact-h4"];
-
-let contactAddress = contactContent.children[1];
-let addressLine1 = siteContent["contact"]["address"].substring(0, 18);
-let addressLine2 = siteContent["contact"]["address"].substring(19);
+let contactContent = document.getElementsByClassName('contact');
+let contactArr = Array.from(contactContent);
 let addressBreak = document.createElement('br');
-let br = contactContent.children[1].children[0];
-contactAddress.innerText = addressLine1;
-contactAddress.appendChild(addressBreak);
-contactContent.children[1].children[0].after(addressLine2);
 
-let phone = contactContent.children[2];
-phone.innerText = siteContent['contact']["phone"];
+contactArr.forEach((element) => {
+  element.firstElementChild.textContent = siteContent['contact']["contact-h4"];
+  element.children[1].textContent = siteContent["contact"]["address"].substring(0, 18);
+  element.children[1].textContent = siteContent["contact"]["address"].substring(19);
+  element.children[2].textContent = siteContent['contact']["phone"];
+  element.children[3].textContent = siteContent['contact']['email'];
+});
 
-let email = contactContent.children[3];
-email.innerText = siteContent['contact']['email'];
+contactArr[0].children[1].appendChild(addressBreak);
+let address1 = contactArr[0].children[1].textContent = siteContent["contact"]["address"].substring(0, 18);
+addressBreak.append(address1);
 
 let footer = document.getElementsByClassName('container')[0].lastElementChild;
 footer.innerText = siteContent["footer"]["copyright"];
-
-let history = document.createElement('a');
-let investors = document.createElement('a');
-
-history.setAttribute('href', '#')
-
-nav.appendChild(history)
-history.innerText = 'History';
-history.style.color = 'green';
-
-investors.setAttribute('href', '#');
-investors.style.color = 'green';
-investors.innerText = 'Investors';
-nav.prepend(investors);
 
 ctaButton.setAttribute('onClick', 'myFunction()');
 
